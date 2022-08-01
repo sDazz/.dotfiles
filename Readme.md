@@ -1,4 +1,4 @@
-#.DotFiles
+%.DotFiles
 
 My main dotfiles customizations.
 
