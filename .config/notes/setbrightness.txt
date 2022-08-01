@@ -1,0 +1,5 @@
+To set the brightness I had to change the config of the 
+amdgpu_bl0/brightness folder. Command:
+
+sudo chmod o+w /sys/class/backlight/amdgpu_bl0/brightness
+
