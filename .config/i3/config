@@ -59,8 +59,9 @@ bindsym Mod4+Return exec alacritty
 # kill focused window
 bindsym Mod4+BackSpace kill
 
+#define and switch keyboard layout
+exec setxkbmap -layout br,us -option -option grp:win_space_toggle
 
-# start dmenu (a program launcher)
 bindsym Mod4+p exec --no-startup-id rofi -show run
 # bindsym Mod4+d exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
