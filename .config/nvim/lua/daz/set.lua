@@ -14,6 +14,7 @@ vim.opt.incsearch = true
 vim.opt.smartindent = true
  
 vim.opt.scrolloff=8
+vim.opt.signcolumn = "yes"
 
 vim.opt.wrap = false
         
