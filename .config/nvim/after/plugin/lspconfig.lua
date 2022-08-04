@@ -56,6 +56,8 @@ require('lspconfig')['pyright'].setup {
  
 require'lspconfig'.bashls.setup{}
 
+require'lspconfig'.clangd.setup{}
+
 require'lspconfig'.omnisharp.setup {
     cmd = { "dotnet", "/lib/omnisharp-roslyn/OmniSharp.dll" },
     on_attach = on_attach,

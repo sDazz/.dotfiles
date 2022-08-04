@@ -7,6 +7,7 @@ bindkey -v
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/daz/.zshrc'
+PROMPT_EOL_MARK=''
 
 autoload -Uz compinit
 compinit

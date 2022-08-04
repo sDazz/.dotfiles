@@ -10,14 +10,17 @@ vim.opt.expandtab = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
- 
+
 vim.opt.smartindent = true
- 
 vim.opt.scrolloff=8
 vim.opt.signcolumn = "yes"
 
 vim.opt.wrap = false
-        
 vim.g.mapleader = ' '
 
 vim.g.netrw_keepdir = 0
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
