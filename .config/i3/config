@@ -217,4 +217,3 @@ gaps inner 5
 # Please remove the following exec line:
 #######################################################################
 exec i3-config-wizard
-

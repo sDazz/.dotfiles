@@ -89,3 +89,12 @@
     })
   })
 
+vim.api.nvim_create_autocmd({ "BufNewFile" }, {
+  pattern = { "*" },
+  command = [[setlocal formatoptions-=o]],
+})
+vim.api.nvim_create_autocmd({ "BufRead" }, {
+  pattern = { "*" },
+  command = [[setlocal formatoptions-=o]],
+})
+

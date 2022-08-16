@@ -24,3 +24,12 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
 })
+
+vim.api.nvim_create_autocmd({ "BufNewFile" }, {
+  pattern = { "*" },
+  command = [[setlocal formatoptions-=cro]],
+})
+vim.api.nvim_create_autocmd({ "BufRead" }, {
+  pattern = { "*" },
+  command = [[setlocal formatoptions-=cro]],
+})
