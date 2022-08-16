@@ -52,6 +52,7 @@ nitrogen --restore &
 
 picom --experimental-backends &
 sh /home/daz/bashScripts/setkb.sh &
+sh /home/daz/bashScripts/setmonitor.sh &
 exec i3
 
 

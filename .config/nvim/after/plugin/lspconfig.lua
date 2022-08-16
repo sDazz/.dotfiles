@@ -2,8 +2,6 @@
 
 
 
- 
- 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -26,37 +24,36 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wl', function()
+  vim.keymap.set('n', '<leadebest language server for cppr>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', '<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
-  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
 end
 
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
- 
- 
- 
- 
- 
+
+
+
+
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
---  
+--
 require('lspconfig')['pyright'].setup {
   capabilities = capabilities
 }
- 
+
 require'lspconfig'.bashls.setup{}
 
-require'lspconfig'.clangd.setup{}
 
 require'lspconfig'.omnisharp.setup {
     cmd = { "dotnet", "/lib/omnisharp-roslyn/OmniSharp.dll" },
@@ -96,4 +93,29 @@ require'lspconfig'.omnisharp.setup {
     -- Only run analyzers against open files when 'enableRoslynAnalyzers' is
     -- true
     analyze_open_documents_only = false,
+}
+
+local servers = { 'pyright',
+                  'clangd',
+                  'omnisharp',
+                  'bashls',
+                }
+
+--for _,lsp in pairs(servers) do
+--    require('lspconfig')[lsp].setup {
+--        on_attach = on_attach,
+--        flags = {
+--            debounce_text_changes = 150
+--        }
+--    }
+--end
+
+require'lspconfig'.clangd.setup{
+    cmd = {"clangd"},
+    on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150
+
+    },
+    single_file_support = true,
 }

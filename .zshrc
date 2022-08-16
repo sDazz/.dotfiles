@@ -14,7 +14,7 @@ compinit
 # End of lines added by compinstall
 
 
-pfetch 
+pfetch
 scripts=/home/daz/bashScripts
 source ${scripts}/aliases.sh
 source ${scripts}/loadvenv.sh
