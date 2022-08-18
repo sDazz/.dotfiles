@@ -884,6 +884,7 @@ shell:
 
     # Default colors
     primary:
+
       background: '#EFF1F5' # base
       foreground: '#4C4F69' # text
       # Bright and dim foreground colors
@@ -1212,7 +1213,7 @@ shell:
 
 
 
-colors: *macchiato
+colors: *mocha
 
 #**************************CATPPUCCIN*********************************
 color_schemes:
@@ -1551,5 +1552,5 @@ color_schemes:
 
 
 
-colors: *macchiato
+colors: *mocha
 
