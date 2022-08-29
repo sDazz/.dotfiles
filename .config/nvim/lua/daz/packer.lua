@@ -6,16 +6,15 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  use 'folke/tokyonight.nvim'
   use "nvim-lualine/lualine.nvim"
   use {
   'nvim-telescope/telescope.nvim', tag = '0.1.0',
   requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use 'nvim-treesitter/nvim-treesitter'
-
+  --latex
   use 'lervag/vimtex'
 
+  --lspthings
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -23,7 +22,16 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-cmdline'
 
+  --luasnip
+  use { "L3MON4D3/LuaSnip" }
+  use { "saadparwaiz1/cmp_luasnip" }
+
+  --themes
   use { "catppuccin/nvim", as = "catppuccin" }
+  use { "ellisonleao/gruvbox.nvim" }
+  use 'folke/tokyonight.nvim'
+  use { "joshdick/onedark.vim" }
+  use { "nvim-treesitter/nvim-treesitter" }
 
 end)
 

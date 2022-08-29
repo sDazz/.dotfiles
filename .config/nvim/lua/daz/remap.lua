@@ -1,5 +1,7 @@
 local nnoremap = require("daz.keymap").nnoremap
 local vnoremap = require("daz.keymap").vnoremap
+local inoremap = require("daz.keymap").inoremap
+local snoremap = require("daz.keymap").snoremap
 
 
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
@@ -16,3 +18,6 @@ nnoremap("<leader>ph", "<cmd>Telescope help_tags<CR>")
 vnoremap("<leader>y", "\"+y")
 nnoremap("<leader>yy", "\"+yy")
 
+--?
+nnoremap("<C-d>", "<C-d>zz")
+nnoremap("<C-u>", "<C-u>zz")
