@@ -16,6 +16,7 @@ nnoremap("<leader>ph", "<cmd>Telescope help_tags<CR>")
 
 --Yank to clipboard
 vnoremap("<leader>y", "\"+y")
+nnoremap("<leader>y", "\"+y")
 nnoremap("<leader>yy", "\"+yy")
 
 --?

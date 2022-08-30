@@ -20,6 +20,9 @@ vim.g.mapleader = ' '
 
 vim.g.netrw_keepdir = 0
 
+
+vim.cmd("setlocal cinkeys-=:")
+
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],

@@ -2,6 +2,11 @@
   local cmp = require'cmp'
   local luasnip = require("luasnip")
 
+  local check_backspace = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
   cmp.setup({
     snippet = {
       -- REQUIRED - you must specify a snippet engine
@@ -17,21 +22,23 @@
       -- documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-    ["<C-j>"] = cmp.mapping.select_next_item(),
-    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    ["<C-h>"] = cmp.mapping.confirm { select = true },
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      if luasnip.expandable() then
-        luasnip.expand()
+    ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+    ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+    --["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    ["<C-n>"] = cmp.mapping.confirm { select = true },
+    --["<C-Space>"] = cmp.mapping.confirm { select = true },
+
+   ["<Tab>"] = cmp.mapping(function(fallback)
+     if luasnip.expandable() then
+       luasnip.expand()
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
       elseif cmp.visible() then
         cmp.select_next_item()
---      elseif check_backspace() then
---        fallback()
+     elseif not check_backspace() then
+       fallback()
+     elseif luasnip.expand_or_jumpable() then
+       luasnip.expand_or_jump()
       else
         fallback()
       end
