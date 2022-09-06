@@ -96,9 +96,10 @@ require'lspconfig'.omnisharp.setup {
 }
 
 local servers = { 'pyright',
-                  'clangd',
+--                  'clangd',
                   'omnisharp',
                   'bashls',
+                  'cmake',
                 }
 
 --for _,lsp in pairs(servers) do
@@ -119,6 +120,9 @@ require'lspconfig'.clangd.setup{
     },
     single_file_support = true,
 }
+
+require'lspconfig'.cmake.setup{}
+
 require'lspconfig'.sumneko_lua.setup {
   settings = {
     Lua = {

@@ -31,12 +31,12 @@ end
    ["<Tab>"] = cmp.mapping(function(fallback)
      if luasnip.expandable() then
        luasnip.expand()
+     elseif not check_backspace() then
+       fallback()
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
       elseif cmp.visible() then
         cmp.select_next_item()
-     elseif not check_backspace() then
-       fallback()
      elseif luasnip.expand_or_jumpable() then
        luasnip.expand_or_jump()
       else
@@ -105,4 +105,7 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = { "*" },
   command = [[setlocal formatoptions-=o]],
 })
+
+--just to make sure it's being called from somewhere under the after path
+vim.cmd("setlocal cinkeys-=:")
 

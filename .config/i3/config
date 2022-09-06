@@ -165,6 +165,11 @@ bindsym Mod4+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+#screenshot
+bindsym Mod4+backslash exec "deepin-screenshot"
+#setkeyboaard
+bindsym Mod4+Control+K exec "sh ~/bashScripts/setkb.sh"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -207,6 +212,9 @@ border_radius 4
 #ayo, look there's gaps
 gaps inner 5
 
+
+for_window [class="Thunar"] floating enable resize set 800 600
+for_window [class="HeYo"] floating enable
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a

@@ -55,6 +55,59 @@ local partial_func = s("dp", fmt([[
 }))
 table.insert(snippets, partial_func)
 
+local dpfrachigher = s(
+{trig = "dp([%w_]+)", regTrig = true, hidden = false},fmt([[
+\frac{{\partial^{} {}}}{{\partial {}^{}}}
+]],
+{
+  d(1,function(_,snip)
+    return sn(1,i(1,snip.captures[1]))
+  end),
+  i(2,""),
+  i(3,""),
+  rep(1),
+}))
+table.insert(snippets,dpfrachigher)
+
+local dfrachigher = s(
+{trig = "dd([%w_]+)", regTrig = true, hidden = false},fmt([[
+\frac{{d^{} {} }}{{d{}^{}}}
+]],
+{
+  d(1,function(_,snip)
+    return sn(1,i(1,snip.captures[1]))
+  end),
+  i(2,""),
+  i(3,""),
+  rep(1),
+}))
+table.insert(snippets,dfrachigher)
+
+local sqrt = s(
+{trig = "sq", regTrig = true, hidden = true},fmt(
+[[
+\sqrt{{{}}}
+]],
+{
+  i(1,"arg"),
+}))
+table.insert(snippets,sqrt)
+
+
+local highroot = s(
+{trig = "rt([%w_]+)", regTrig = true, hidden = true},fmt(
+[[
+\sqrt[\leftroot{{-3}}\uproot{{3}} {}]{{{}}}
+]],
+{
+  d(1,function(_,snip)
+    return sn(1,i(1,snip.captures[1]))
+  end),
+  i(2,"arg"),
+}))
+table.insert(snippets,highroot)
+
+
 local begin = s("bg",fmt([[
 \begin{{{}}}
   {}
