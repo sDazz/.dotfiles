@@ -19,6 +19,7 @@ vim.opt.wrap = false
 vim.g.mapleader = ' '
 
 vim.g.netrw_keepdir = 0
+vim.opt.colorcolumn = "80"
 
 
 vim.cmd("setlocal cinkeys-=:")
