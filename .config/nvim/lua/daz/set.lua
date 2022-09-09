@@ -21,6 +21,7 @@ vim.g.mapleader = ' '
 vim.g.netrw_keepdir = 0
 vim.opt.colorcolumn = "80"
 
+vim.opt.timeoutlen = 100
 
 vim.cmd("setlocal cinkeys-=:")
 
