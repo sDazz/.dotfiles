@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/daz/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
   },
+  ["clangd_extensions.nvim"] = {
+    loaded = true,
+    path = "/home/daz/.local/share/nvim/site/pack/packer/start/clangd_extensions.nvim",
+    url = "https://github.com/p00f/clangd_extensions.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/daz/.local/share/nvim/site/pack/packer/start/cmp-buffer",

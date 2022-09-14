@@ -190,6 +190,61 @@ local ointegral = s("oint", fmt([[
 table.insert(snippets,ointegral)
 
 
+--Snippet for starting a new exercise list
+local exercises_initializer = s(
+{trig="exec_init",hidden=true},fmt([[
+
+\documentclass[14pt]{{exam}}
+\usepackage{{amsthm}}
+\usepackage{{libertine}}
+\usepackage[utf8]{{inputenc}}
+\usepackage[margin=1in]{{geometry}}
+\usepackage{{amsmath,amssymb}}
+\usepackage{{multicol}}
+\usepackage[shortlabels]{{enumitem}}
+\usepackage{{siunitx}}
+\usepackage{{cancel}}
+\usepackage{{graphicx}}
+\usepackage{{pgfplots}}
+\usepackage{{listings}}
+\usepackage{{tikz}}
+
+
+\pgfplotsset{{width=10cm,compat=1.9}}
+\usepgfplotslibrary{{external}}
+\tikzexternalize
+
+\newcommand{{\class}}{{{}}} % This is the name of the course
+\newcommand{{\examnum}}{{{}}} % This is the name of the assignment
+\newcommand{{\numUSP}}{{}} % This is the USP NUMBER
+\newcommand{{\timelimit}}{{}}
+
+
+\begin{{document}}
+\pagestyle{{plain}}
+\thispagestyle{{empty}}
+
+\noindent
+\begin{{tabular*}}{{\textwidth}}{{l @{{\extracolsep{{\fill}}}} r @{{\extracolsep{{6pt}}}} l}}
+\textbf{{\class}} & \textbf{{Name:}} & \textit{{Julian Sousa}}\\ %Your name here instead, obviously
+\textbf{{\examnum}} &&\\
+\textbf{{\numUSP}} & \textbf{{Número USP}}: & \textit{{11846922}} \\
+\end{{tabular*}}\\
+\rule[2ex]{{\textwidth}}{{2pt}}
+% -----------------------------------------
+
+{}
+
+
+
+\end{{document}}
+]],
+{
+  i(1,"title"),
+  i(2,"number"),
+  i(3,"")
+}))
+table.insert(snippets,exercises_initializer)
 
 
 

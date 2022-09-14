@@ -166,10 +166,10 @@ bindsym Mod4+Shift+r restart
 bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 #firefox shit
-exec --no-startup-id i3-msg workspace 2;"firefox"
+exec --no-startup-id "workspace 2; exec firefox"
 
 bindsym Mod4+Shift+b exec "firefox"
-#screenshot
+#screenshot print-screen
 bindsym Mod4+backslash exec "deepin-screenshot"
 #setkeyboaard
 bindsym Mod4+Control+K exec "sh ~/bashScripts/setkb.sh"

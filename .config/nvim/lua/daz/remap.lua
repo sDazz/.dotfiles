@@ -7,8 +7,8 @@ local xnoremap = require("daz.keymap").xnoremap
 
 
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
-nnoremap("<leader>o", "o <Esc>x")
-nnoremap("<leader>O", "O <Esc>x")
+nnoremap("<leader>o", "o <Esc>")
+nnoremap("<leader>O", "O <Esc>")
 
 --Telescope shortcuts
 nnoremap("<leader>pf", "<cmd>Telescope find_files<CR>")
@@ -22,8 +22,10 @@ nnoremap("<leader>y", "\"+y")
 nnoremap("<leader>yy", "\"+yy")
 
 --greatest remap ever????
-nnoremap("<leader>p", "\"+p")
-inoremap("<C-v>","<CS-v>")
+xnoremap("<leader>p", "\"_dP")
+--vnoremap("<leader>p", "\"+p")
+--nnoremap("<leader>d", "\"_d")
+
 
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")

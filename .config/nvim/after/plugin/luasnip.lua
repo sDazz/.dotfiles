@@ -31,3 +31,6 @@ ls.config.set_config({
 --    ls.change_choice(-1)
 --  end
 --end)
+--Just make sure it's being called in the after path
+vim.cmd("setlocal cinkeys-=:")
+
