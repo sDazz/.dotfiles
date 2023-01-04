@@ -21,10 +21,56 @@ local frac_snip = s("fr", fmt([[
 \frac{{{}}}{{{}}}
 ]],--really messy, because to escape { we need {{
 {
-  i(1, "arg1"),
-  i(2, "arg2"),
+  i(1, ""),
+  i(2, ""),
 }))
 table.insert(snippets, frac_snip)
+
+
+local tbold = s("tbf" , fmt([[
+\textbf{{{}}}
+]],
+{
+  i(1,""),
+}))
+table.insert(snippets,tbold)
+
+
+local titalic = s("tit" , fmt([[
+\textit{{{}}}
+]],
+{
+  i(1,""),
+}))
+table.insert(snippets,titalic)
+
+local mitalic = s("mit" , fmt([[
+\textit{{{}}}
+]],
+{
+  i(1,""),
+}))
+table.insert(snippets,mitalic)
+
+local mbold = s("mbf" , fmt([[
+\mathbf{{{}}}
+]],
+{
+  i(1,""),
+}))
+table.insert(snippets,mbold)
+
+local box = s("bx" , fmt([[
+\[
+  \boxed {{
+      {}
+  }}
+\]
+]],
+{
+  i(1,""),
+}))
+table.insert(snippets,box)
 
 local begin_aligns = s("ba*",fmt([[
 \begin{{align*}}
@@ -50,8 +96,8 @@ local partial_func = s("dp", fmt([[
 \frac{{\partial {}}}{{\partial {}}}
 ]],
 {
-  i(1, "arg1"),
-  i(2, "arg2"),
+  i(1, ""),
+  i(2, ""),
 }))
 table.insert(snippets, partial_func)
 
@@ -103,7 +149,7 @@ local highroot = s(
   d(1,function(_,snip)
     return sn(1,i(1,snip.captures[1]))
   end),
-  i(2,"arg"),
+  i(2,""),
 }))
 table.insert(snippets,highroot)
 
@@ -129,9 +175,7 @@ ${}$
 table.insert(autosnippets,inline_math)
 
 local mathy = s("\\[", fmt([[
-\[
-  {}
-\]
+\left[{}\right]
 ]],
 {
   i(1,"")
@@ -208,15 +252,17 @@ local exercises_initializer = s(
 \usepackage{{pgfplots}}
 \usepackage{{listings}}
 \usepackage{{tikz}}
+\usepackage{{tabularray}}
 
 
 \pgfplotsset{{width=10cm,compat=1.9}}
 \usepgfplotslibrary{{external}}
 \tikzexternalize
 
+\newcommand{{\dgr}}{{^{{\circ}}}}
 \newcommand{{\class}}{{{}}} % This is the name of the course
 \newcommand{{\examnum}}{{{}}} % This is the name of the assignment
-\newcommand{{\numUSP}}{{}} % This is the USP NUMBER
+\newcommand{{\numUSP}}{{}}
 \newcommand{{\timelimit}}{{}}
 
 
@@ -226,9 +272,9 @@ local exercises_initializer = s(
 
 \noindent
 \begin{{tabular*}}{{\textwidth}}{{l @{{\extracolsep{{\fill}}}} r @{{\extracolsep{{6pt}}}} l}}
-\textbf{{\class}} & \textbf{{Name:}} & \textit{{Julian Sousa}}\\ %Your name here instead, obviously
+\textbf{{\class}} & \textbf{{Name:}} & \textit{{{}}}\\ %Your name here instead, obviously
 \textbf{{\examnum}} &&\\
-\textbf{{\numUSP}} & \textbf{{Número USP}}: & \textit{{11846922}} \\
+\textbf{{\numUSP}} & \textbf{{Número USP}}: & \textit{{{}}} \\
 \end{{tabular*}}\\
 \rule[2ex]{{\textwidth}}{{2pt}}
 % -----------------------------------------
@@ -240,12 +286,63 @@ local exercises_initializer = s(
 \end{{document}}
 ]],
 {
-  i(1,"title"),
-  i(2,"number"),
-  i(3,"")
+  i(1,"name"),
+  i(2,"Nmr USP"),
+  i(3,"title"),
+  i(4,"number"),
+  i(5,"")
 }))
 table.insert(snippets,exercises_initializer)
 
+
+local rangle = s(
+{trig="ln",hidden=false},fmt([[
+\langle {} \rangle
+]],
+{
+  i(1,"")
+}))
+
+table.insert(snippets, rangle)
+local mathcal = s(
+{trig="mc", hidden = false},fmt([[
+\mathcal{{{}}}
+]],
+{
+  i(1,"")
+}))
+table.insert(snippets, mathcal)
+
+
+
+
+local limit = s(
+{trig="lim", hidden = true},fmt([[
+  \lim_{{{}\rightarrow {}}}
+]],
+{
+  i(1, ""),
+  i(2, "")
+}))
+table.insert(snippets, limit)
+
+local exp = s(
+{trig = "e", hidden = false},fmt([[
+  exp\left\{{{}\right\}}
+  ]],
+  {
+    i(1,"")
+  }))
+table.insert(snippets,exp)
+
+local ang_bracket = s(
+{trig = "\\{" , hidden = true} , fmt ( [[
+\left\{{{}\right}}
+]],
+{
+  i(1,"")
+}))
+table.insert(autosnippets,ang_bracket)
 
 
 return snippets, autosnippets

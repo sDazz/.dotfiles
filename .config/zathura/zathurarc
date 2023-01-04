@@ -1,4 +1,4 @@
-include catppuccin-macchiato
+include catppuccin-mocha
 set window-title-basename "true"
 set selection-clipboard "clipboard"
 

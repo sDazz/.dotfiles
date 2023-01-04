@@ -1,0 +1,19 @@
+# GIMP action-history
+
+(history-item "edit-clear" 5)
+(history-item "file-overwrite" 0)
+(history-item "file-export" 1)
+(history-item "file-open" 0)
+(history-item "file-quit" 2)
+(history-item "file-save-as" 1)
+(history-item "image-new" 0)
+(history-item "file-export-as" 0)
+(history-item "tools-ellipse-select" 1)
+(history-item "edit-copy" 0)
+(history-item "tools-zoom" 0)
+(history-item "tools-size-set-to-default" 0)
+(history-item "file-save" 0)
+(history-item "tools-iscissors" 0)
+(history-item "tools-clone" 1)
+
+# end of action-history

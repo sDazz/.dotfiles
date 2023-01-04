@@ -1,4 +1,4 @@
-local M = {}
+local F = {}
 
 local function bind(op, outer_opts)
     outer_opts = outer_opts or {noremap = true}
@@ -11,11 +11,11 @@ local function bind(op, outer_opts)
     end
 end
 
-M.nmap = bind("n", {noremap = false})
-M.nnoremap = bind("n")
-M.vnoremap = bind("v")
-M.xnoremap = bind("x")
-M.inoremap = bind("i")
+F.nmap = bind("n", {noremap = false})
+F.nnoremap = bind("n")
+F.vnoremap = bind("v")
+F.xnoremap = bind("x")
+F.inoremap = bind("i")
 
-return M
+return F
 
